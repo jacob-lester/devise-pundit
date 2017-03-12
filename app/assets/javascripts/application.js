@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//= require cable.js
+//= require custom-ar.js
+//= require custom.js
+//= require html5.js
+//= require jquery-ui-1.10.3.custom.min.js
+//= require jquery.carouFredSel-6.2.1-packed.js
+//= require jquery.easing.1.3.min.js
+//= require jquery.flexslider.js
+//= require jquery.inview.min.js
+//= require jquery.nav.js
+//= require jquery.prettyPhoto.js
+//= require jquery.scrollTo.js
+//= require jquery.tipsy.js
+//= require tabs.js
+//= require tags.js
+

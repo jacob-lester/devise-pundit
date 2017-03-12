@@ -11,6 +11,9 @@ img {
 .navbar-brand {
   font-size: inherit;
   }
+.navbar-inverse {
+  background-color: #535353;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -36,9 +39,11 @@ img {
 main {
   @extend .container;
   background-color: #eee;
-  padding-bottom: 80px;
+  padding-bottom: 0;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  padding-left: 0;
+  padding-right: 0;
   }
 section {
   @extend .row;
