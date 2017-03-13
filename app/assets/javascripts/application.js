@@ -30,4 +30,3 @@
 //= require jquery.tipsy.js
 //= require tabs.js
 //= require tags.js
-
