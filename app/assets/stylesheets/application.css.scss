@@ -5278,3 +5278,15 @@ html[xmlns] .slides {
 .author-bio a {
 	color: #FFC72C;
 }
+
+#welcome-banner {
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 187, 0, 0.80), 
+      rgba(255, 187, 0, 0.80)
+    ),
+    /* bottom, image */
+    url('/assets/web.jpg');
+  background-position: bottom left;
+}
