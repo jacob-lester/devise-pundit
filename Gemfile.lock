@@ -137,6 +137,8 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.23)
@@ -200,6 +202,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.0.1)
   rails_layout
+  rename
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
