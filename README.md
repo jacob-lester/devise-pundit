@@ -1,7 +1,7 @@
 NKUNet
 ================
 A Ruby on Rails Q&A Application for Northern Kentucky Univeristy Students
-[![View on Heroku](https://www.herokucdn.com/deploy/button.png)](http://nkunet17.herokuapp.com/)
+[![View on Heroku](http://nkunet17.herokuapp.com/)
 
 Vision
 -----------
