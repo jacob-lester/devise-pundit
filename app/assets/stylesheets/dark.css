@@ -15,10 +15,10 @@ body,#warp,.loader,.boxed,.boxed2,.widget_tag_cloud a {
 .question-report,.widget_login input[type="text"],.widget_login input[type="password"],.widget.widget_stats li,.user-profile-widget .ul_list li,.pagination a,.share-inside-warp,.single-question-vote-up,.single-question-vote-down,.button.black, .button.dark_button.color,.button.color:hover,.progressbar,blockquote,.qoute,.accordion .accordion-title a,.carousel-pagination a,.user-stats-head,.stats-head, .block-stats-1, .block-stats-2, .block-stats-3, .block-stats-4,.user-stats-item {
 	background-color: #393c44;
 }
-.widget_login input[type="text"],.widget_login input[type="password"],input[type="text"],input[type="password"],input[type="email"],textarea,select,.fakefile button,#question-submit input[type="checkbox"],input[type="radio"] {
+/*.widget_login input[type="text"],.widget_login input[type="password"],input[type="text"],input[type="password"],input[type="email"],textarea,select,.fakefile button,#question-submit input[type="checkbox"],input[type="radio"] {
 	border-color: #393c44;
 	background-color: #393c44;
-}
+}*/
 .question,.widget,.page-content,.about-author,.user-question,#related-posts,.panel-pop,.share-inside-warp,.post {
 	border-color: rgba(0,0,0,0.10);
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.10);

@@ -9,7 +9,7 @@
 			<div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF">
 				<div class="row">
 					<div class="col-md-12">
-						<div id="welcome">
+						<div class="welcome">
 							<h1>Welcome to <span style="font-style:italic;"><span style="font-weight:500;">NKU</span>Net</span></h1>
 							<h3>The Q&A resource for Northern Kentucky University students and faculty looking for guidance regarding course material. Ask a question, browse existing ones, and vote on answers to help fellow Norse solve their problems.</h3>
 						</div>
@@ -57,7 +57,7 @@
 										<span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
 									</div>
 									<span class="question-category"><a href="#"><i class="icon-folder-close"></i>CSC 440</a></span>
-									<span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+									<span class="question-date"><i class="icon-time"></i><%= time_ago_in_words(question.created_at) %> ago</span>
 									<span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
 									<div class="clearfix"></div>
 								</div>
@@ -98,31 +98,17 @@
 					</ul>
 				</div>
 				
-				<div class="widget widget_tag_cloud">
-					<h3 class="widget_title">Tags</h3>
-					<a href="#">projects</a>
-					<a href="#">Portfolio</a>
-					<a href="#">Wordpress</a>
-					<a href="#">Html</a>
-					<a href="#">Css</a>
-					<a href="#">jQuery</a>
-					<a href="#">2code</a>
-					<a href="#">vbegy</a>
-				</div>
-				
 				<div class="widget">
 					<h3 class="widget_title">Recent Questions</h3>
 					<ul class="related-posts">
+						<% Question.order('created_at DESC').limit(2).each do |q| %>
 						<li class="related-item">
-							<h3><a href="#">This is my first Question</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<div class="clear"></div><span>Feb 22, 2014</span>
+							<h3><a href="#"><%= q.title %></a></h3>
+							<p><%= truncate(q.description, length: 70) %></p>
+							<div class="clear"></div><span><%= time_ago_in_words(q.created_at) %> ago</span>
 						</li>
-						<li class="related-item">
-							<h3><a href="#">This Is My Second Poll Question</a></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<div class="clear"></div><span>Feb 22, 2014</span>
-						</li>
+						<% end %>
+						
 					</ul>
 				</div>
 				

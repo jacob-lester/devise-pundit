@@ -20,6 +20,7 @@ p a,li a, a:hover,.button.normal:hover,span.color,#footer a:hover,.widget a:hove
 }
 .loader_html,input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus,textarea:focus,.box_icon .form-style textarea:focus,.social_icon a,#footer-bottom .social_icons ul li a:hover,.widget_login input[type="text"],.widget_login input[type="password"],.panel_light.login-panel input[type="text"],.panel_light.login-panel input[type="password"] {
 	border-color: #FFC72C;
+	color: #000;
 }
 .tabs {
 	border-bottom-color: #FFC72C;
@@ -41,4 +42,7 @@ blockquote {
 }
 .ask-me .col-md-9 p textarea,.widget_login input[type="text"],.widget_login input[type="password"],.panel_light.login-panel input[type="text"],.panel_light.login-panel input[type="password"],blockquote,.qoute {
 	background: rgba(186,165,106,0.20);
+}
+textarea, input[type="email"], input[type="password"] {
+	color: #000;
 }

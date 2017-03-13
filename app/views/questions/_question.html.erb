@@ -1,0 +1,23 @@
+<% @questions.each do |question| %>
+<article class="question question-type-normal">
+	<h2>
+		<%= link_to question.title, question_path(question) %>
+	</h2>
+	<a class="question-report" href="#">Report</a>
+	<div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+	<div class="question-author">
+		<a href="<%= user_path(question.user.id) %>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+	</div>
+	<div class="question-inner">
+		<div class="clearfix"></div>
+		<p class="question-desc"><%= question.description %></p>
+		<div class="question-details">
+			<span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
+		</div>
+		<span class="question-category"><a href="#"><i class="icon-folder-close"></i>CSC 440</a></span>
+		<span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+		<span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+		<div class="clearfix"></div>
+	</div>
+</article>
+<% end %>

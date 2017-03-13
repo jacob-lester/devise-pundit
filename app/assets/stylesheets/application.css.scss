@@ -5266,11 +5266,14 @@ html[xmlns] .slides {
 	background-color: #FFC72C !important;
 	border-color: #FFC72C !important;
 }
-#welcome h1, #welcome h3 {
+.welcome h1, .welcome h3 {
 	color: #fff;
 }
-#welcome h3 {
+.welcome h3 {
 	width: 80%;
 	margin: 40px auto;
 
+}
+.author-bio a {
+	color: #FFC72C;
 }
