@@ -1,50 +1,8 @@
-Devise Pundit
+NKUNet
 ================
+A Ruby on Rails Q&A Application for Northern Kentucky Univeristy Students
+[![View on Heroku](https://www.herokucdn.com/deploy/button.png)](http://nkunet17.herokuapp.com/)
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
+Vision
 -----------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.3.0
-- Rails 5.0.1
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+We envision a next generation educational social network site for NKU students, NKUNet, so that students can share vast knowledge and resources with each other. This educational social network aims to break down barriers by creating forums in which students can participate and seek guidance regarding their courses from not only their peers but also faculty members alike. 
