@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   # GET /questions
   # GET /questions.json
   def index
@@ -70,5 +71,14 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:title, :description)
+    end
+    
+    def require_same_user
+      if (current_user != @question.user || !current_user.admin?)
+        respond_to do |format|
+          format.html { redirect_to question_path(@question), notice: "You do not have access to modify this question"}
+          format.json { render json: @question.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end

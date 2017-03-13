@@ -2621,7 +2621,7 @@ span.date i,span.comment i {
 }
 /* Forms */
 .form-inputs p {
-	width: 32%;
+	width: 100%;
 	margin-right: 2%;
 	margin-bottom: 10px;
 	float: left;
@@ -5289,4 +5289,7 @@ html[xmlns] .slides {
     /* bottom, image */
     url('/assets/web.jpg');
   background-position: bottom left;
+}
+input[type=text] {
+	color: #000 !important;
 }

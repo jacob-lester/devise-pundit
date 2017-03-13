@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /answers/new
   def new
@@ -9,6 +10,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
+    
   end
 
   # POST /answers
@@ -60,5 +62,14 @@ class AnswersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
       params.require(:answer).permit(:question_id, :content)
+    end
+    
+    def require_same_user
+      if (current_user != @answer.user || !current_user.admin?)
+        respond_to do |format|
+          format.html { redirect_to question_path(@answer.question), notice: "You do not have access to modify this answer"}
+          format.json { render json: @answer.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end
