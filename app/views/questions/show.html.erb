@@ -24,7 +24,9 @@
 					  <%= @question.title %>	
 					</h2>
 					<a class="question-report" href="#">Report</a>
-					<div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+					<% if current_user == @question.user %>
+					<a class="question-type-main" href="<%= edit_question_path(@question) %>"><i class="icon-pencil"></i>Edit</a>
+					<% end %>
 					<div class="question-inner">
 						<div class="clearfix"></div>
 						<div class="question-desc">
@@ -33,7 +35,7 @@
 							<span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
 						</div>
 						<span class="question-category"><a href="#"><i class="icon-folder-close"></i>CSC 440</a></span>
-						<span class="question-date"><i class="icon-time"></i><%= @question.created_at.strftime("%b %e %Y") %></span>
+						<span class="question-date"><i class="icon-time"></i>Created <%= @question.created_at.strftime("%b %e %Y") %></span>
 						<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= pluralize(@question.answers.count, "Answer") %></a></span>
 						<span class="single-question-vote-result">+22</span>
 						<ul class="single-question-vote">
@@ -74,7 +76,7 @@
 					                	</div>
 					                	<span class="question-vote-result">+1</span>
 					                	<div class="comment-meta">
-					                        <div class="date"><i class="icon-time"></i><%= answer.created_at.strftime("%b %e %Y") %></div> 
+					                        <div class="date"><i class="icon-time"></i><%= answer.created_at.strftime("%b %e %Y %l:%M %p") %></div> 
 					                    </div>
 					                    <a class="comment-reply" href="#"><i class="icon-reply"></i>Reply</a> 
 					                </div>

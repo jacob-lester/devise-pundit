@@ -13,8 +13,14 @@ img {
   }
 .navbar-inverse {
   background-color: #535353;
+ 
 }
-
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+  color: #fff !important;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-brand:hover {
+  color: #9d9d9d !important;  
+}
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
@@ -41,7 +47,7 @@ main {
   background-color: #eee;
   padding-bottom: 0;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 90px; // accommodate the navbar
   padding-left: 0;
   padding-right: 0;
   }
