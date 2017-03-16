@@ -34,6 +34,7 @@ group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  gem 'rails_real_favicon'
 end
 group :development, :test do
   gem 'sqlite3'
