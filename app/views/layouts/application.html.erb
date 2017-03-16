@@ -35,18 +35,15 @@
 				</div>
 				<div class="col-md-6">
 					<div class="widget">
-						<h3 class="widget_title">Popular Questions</h3>
+						<h3 class="widget_title">Recent Questions</h3>
 						<ul class="related-posts">
+							<% Question.order("updated_at DESC").limit(2).each do |question| %>
 							<li class="related-item">
-								<h3><a href="#">This is my first Question</a></h3>
+								<h3><a href="#"><%= question.title %></a></h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
-								<div class="clear"></div><span>Feb 22, 2014</span>
+								<div class="clear"></div><span><%= question.updated_at.strftime("%b %e %Y %l:%M %p") %></span>
 							</li>
-							<li class="related-item">
-								<h3><a href="#">This Is My Second Poll Question</a></h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
-								<div class="clear"></div><span>Feb 22, 2014</span>
-							</li>
+							<% end %>
 						</ul>
 					</div>	
 				</div>

@@ -23,7 +23,7 @@
 								<a class="question-type-main" href="<%= edit_question_path(question) %>"><i class="icon-pencil"></i>Edit</a>
 								<% end %>
 								<div class="question-author">
-									<a href="<%= user_path(question.user.id) %>" original-title="<%= question.user.name %>" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+									<a href="<%= user_path(question.user.id) %>"  original-title="<%= question.user.name %>" class="question-author-img"><span></span><img alt="" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png"></a>
 								</div>
 								<div class="question-inner">
 									<div class="clearfix"></div>
@@ -33,7 +33,7 @@
 									</div>
 									<span class="question-category"><a href="#"><i class="icon-folder-close"></i>CSC 440</a></span>
 									<span class="question-date"><i class="icon-time"></i>Updated <%= question.updated_at.strftime("%b %e %Y %l:%M %p") %></span>
-									<span class="question-comment"><a href="<%= question_path(question) %>#bio"><i class="icon-comment"></i><%= pluralize(question.answers.count, "Answer") %></a></span>
+									<span class="question-comment"><a href="<%= question_path(question) %>#bio" class="smoothScroll"><i class="icon-comment"></i><%= pluralize(question.answers.count, "Answer") %></a></span>
 									<div class="clearfix"></div>
 								</div>
 							</article>
@@ -51,21 +51,21 @@
 					<ul>
 						<li>
 							<div class="author-img">
-								<a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+								<a href="#"><img width="60" height="60" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png" alt=""></a>
 							</div> 
 							<h6><a href="#">Jake</a></h6>
 							<span class="comment">12 Points</span>
 						</li>
 						<li>
 							<div class="author-img">
-								<a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+								<a href="#"><img width="60" height="60" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png" alt=""></a>
 							</div> 
 							<h6><a href="#">Dan</a></h6>
 							<span class="comment">10 Points</span>
 						</li>
 						<li>
 							<div class="author-img">
-								<a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+								<a href="#"><img width="60" height="60" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png" alt=""></a>
 							</div> 
 							<h6><a href="#">Trong</a></h6>
 							<span class="comment">5 Points</span>
@@ -76,11 +76,11 @@
 				<div class="widget">
 					<h3 class="widget_title">Recent Questions</h3>
 					<ul class="related-posts">
-						<% Question.order('created_at DESC').limit(2).each do |q| %>
+						<% Question.order('updated_at DESC').limit(2).each do |q| %>
 						<li class="related-item">
 							<h3><a href="#"><%= q.title %></a></h3>
 							<p><%= truncate(q.description, length: 70) %></p>
-							<div class="clear"></div><span><%= time_ago_in_words(q.created_at) %> ago</span>
+							<div class="clear"></div><span><%= q.updated_at.strftime("%b %e %Y %l:%M %p") %></span>
 						</li>
 						<% end %>
 						
@@ -93,4 +93,5 @@
 </div><!-- End wrap -->
 
 <div class="go-up"><i class="icon-chevron-up"></i></div>
+
 

@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Ask Question', new_question_path() %></li>
   <% if current_user.try(:user?) %>
     <li><%= link_to 'View Profile', user_path(current_user) %></li>
     <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-  <% end %>  
+  <% end %>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>

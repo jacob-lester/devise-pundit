@@ -18,7 +18,6 @@
  *= require prettyPhoto.css
  *= require font-awesome/css/font-awesome.min.css
  *= require fontello/css/fontello.css
- *= require font-awesome
  */
 
 body {
@@ -5297,5 +5296,8 @@ a.question-type-main,a.question-report {
 	color: white !important;
 	background-color: #2f3239;
 	text-decoration: none;
+}
+.display-block {
+	display: block !important;
 }
 

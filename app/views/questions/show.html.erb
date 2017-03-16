@@ -36,7 +36,7 @@
 						</div>
 						<span class="question-category"><a href="#"><i class="icon-folder-close"></i>CSC 440</a></span>
 						<span class="question-date"><i class="icon-time"></i>Created <%= @question.created_at.strftime("%b %e %Y") %></span>
-						<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= pluralize(@question.answers.count, "Answer") %></a></span>
+						<span class="question-comment"><a href="#bio"><i class="icon-comment"></i><%= pluralize(@question.answers.count, "Answer") %></a></span>
 						<span class="single-question-vote-result">+22</span>
 						<ul class="single-question-vote">
 							<li><a href="#" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
@@ -48,7 +48,7 @@
 				
 				<div class="about-author clearfix">
 				    <div class="author-image">
-				    	<a href="<%= user_path(@question.user.id) %>" original-title="<%= @question.user.name %>" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+				    	<a href="<%= user_path(@question.user.id) %>" original-title="<%= @question.user.name %>" class="tooltip-n"><img alt="" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png"></a>
 				    </div>
 				    <div class="author-bio" id="bio">
 				        <h4>Question Posted By <%= link_to @question.user.name, user_path(@question.user.id) %></h4>
@@ -64,7 +64,7 @@
 					    <% @question.answers.order('created_at DESC').each do |answer| %>
 					    <li class="comment">
 					        <div class="comment-body comment-body-answered clearfix"> 
-					            <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
+					            <div class="avatar"><img alt="" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png"></div>
 					            <div class="comment-text">
 					                <div class="author clearfix">
 					                	<div class="comment-author"><%= link_to answer.user.name, user_path(answer.user) %></div>
@@ -78,10 +78,23 @@
 					                	<div class="comment-meta">
 					                        <div class="date"><i class="icon-time"></i><%= answer.created_at.strftime("%b %e %Y %l:%M %p") %></div> 
 					                    </div>
-					                    <a class="comment-reply" href="#"><i class="icon-reply"></i>Reply</a> 
+					                    <% if current_user == answer.user %>
+					                    <a id="editAnswerButton<%= answer.id %>" class="comment-reply" onclick="editAnswer(<%= answer.id %>)"><i class="icon-pencil"></i>Edit</a> 
+					                    <% end %>
 					                </div>
 					                <div class="text">
-					                	<p><%= answer.content %></p>
+					                	<p id="text<%= answer.id %>"><%= answer.content %></p>
+					                	<div id="editAnswerForm<%= answer.id %>">
+					                	<%= form_for answer do |f| %>
+					                	<div id='respond-textarea'>
+					                		<p><%= f.text_area :content, rows: 10, class: 'form-control' %></p>
+					                	</div><%= f.hidden_field :question_id %>
+					                		<p class='form-submit'>
+					                			<%= f.submit class: 'button small color' %>
+					                		</p>
+					                	
+					                	<% end %>
+					                	</div>
 					              	</div>
 					            </div>
 					        </div>
@@ -105,7 +118,7 @@
 				        	
 				        	<%= f.submit class: "button small color" %>
 				        </p>
-				    <% end %>
+				    	<% end %>
 				</div>
 				
 				<div class="post-next-prev clearfix">
@@ -139,3 +152,36 @@
 </div><!-- End wrap -->
 
 <div class="go-up"><i class="icon-chevron-up"></i></div>
+<script>
+	/* scroll answer into view */
+	// to top right away
+	if (window.location.hash) scroll(0,0);
+	
+	// void some browsers issue
+	setTimeout( function() { scroll(0,0); }, 1);
+	
+	$(function() {
+    // *only* if we have anchor on the url
+    if(window.location.hash) {
+	    // smooth scroll to the anchor id
+	    $('html, body').animate({
+	        scrollTop: $(window.location.hash).offset().top - 80 + 'px'
+	    }, 800, 'swing');
+    }
+	});
+	
+	$('[id^=editAnswerForm]').hide();
+	
+	function editAnswer(id) {
+		if($('#editAnswerForm' + id).is(":visible")){
+			$('#editAnswerButton' + id).html("<i class='icon-pencil'></i>Edit");
+			$('#text' + id).show();
+    	$('#editAnswerForm' + id).hide();
+		} else {
+			$('#editAnswerButton' + id).html("<i class='icon-times'></i>Cancel");
+			$('#text' + id).hide();
+			$('#editAnswerForm' + id).show();
+		}
+	}
+					      
+</script>

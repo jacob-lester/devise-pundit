@@ -25,6 +25,7 @@ background: linear-gradient(to left, #F7971E , #FFD200); /* W3C, IE 10+/ Edge, F
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-brand:hover {
   color: #9d9d9d !important;  
 }
+
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
@@ -94,4 +95,15 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+.navbar-brand {
+  margin-top: -10px;
+}
+.navbar-toggle {
+  margin-right: 30px !important;
+}
+@media screen and (max-width: 760px) {
+  .navbar-brand {
+    margin-left: 20px;
+  } 
 }

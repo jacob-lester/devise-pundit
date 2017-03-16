@@ -34,7 +34,7 @@ class AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to @answer, notice: 'answer was successfully updated.' }
+        format.html { redirect_to @answer.question, notice: 'answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @answer }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class AnswersController < ApplicationController
     end
     
     def require_same_user
-      if (current_user != @answer.user || !current_user.admin?)
+      if (current_user != @answer.user && !current_user.admin?)
         respond_to do |format|
           format.html { redirect_to question_path(@answer.question), notice: "You do not have access to modify this answer"}
           format.json { render json: @answer.errors, status: :unprocessable_entity }

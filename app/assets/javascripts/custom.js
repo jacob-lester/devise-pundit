@@ -1018,12 +1018,14 @@ jQuery(document).ready(function($) {
 	    }
 	}).scroll();
 	
-	/* Twitter */
 	
+  $('[data-toggle="tooltip"]').tooltip({
+    trigger : 'hover'
+	});
 
 	
-
-	/* Flickr */
+	
+	
 	
 
 	
