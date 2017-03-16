@@ -23,9 +23,15 @@
 					<h2>
 					  <%= @question.title %>	
 					</h2>
-					<a class="question-report" href="#">Report</a>
+					<% if current_user.admin? %>
+						<a class="question-type-main" href="<%= edit_question_path(@question) %>"><i class="icon-pencil"></i>Edit</a>
+						<%= link_to(question_path(@question), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'question-report red-bg') do %>
+							<i class="icon-trash"></i>Delete
+						<% end %>
+					<% end %>
+					
 					<% if current_user == @question.user %>
-					<a class="question-type-main" href="<%= edit_question_path(@question) %>"><i class="icon-pencil"></i>Edit</a>
+						<a class="question-report" href="<%= edit_question_path(@question) %>"><i class="icon-pencil"></i>Edit</a>
 					<% end %>
 					<div class="question-inner">
 						<div class="clearfix"></div>
@@ -78,8 +84,11 @@
 					                	<div class="comment-meta">
 					                        <div class="date"><i class="icon-time"></i><%= answer.created_at.strftime("%b %e %Y %l:%M %p") %></div> 
 					                    </div>
-					                    <% if current_user == answer.user %>
-					                    <a id="editAnswerButton<%= answer.id %>" class="comment-reply" onclick="editAnswer(<%= answer.id %>)"><i class="icon-pencil"></i>Edit</a> 
+					                    <% if current_user == answer.user || current_user.admin? %>
+					                    	<%= link_to(answer_path(answer), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'comment-reply red') do %>
+					                    	<i class="icon-trash"></i>Delete
+																<% end %>
+																<a id="editAnswerButton<%= answer.id %>" class="comment-reply" onclick="editAnswer(<%= answer.id %>)"><i class="icon-pencil"></i>Edit</a>
 					                    <% end %>
 					                </div>
 					                <div class="text">
@@ -178,7 +187,7 @@
 			$('#text' + id).show();
     	$('#editAnswerForm' + id).hide();
 		} else {
-			$('#editAnswerButton' + id).html("<i class='icon-times'></i>Cancel");
+			$('#editAnswerButton' + id).html("<i class='icon-eraser'></i>Cancel");
 			$('#text' + id).hide();
 			$('#editAnswerForm' + id).show();
 		}

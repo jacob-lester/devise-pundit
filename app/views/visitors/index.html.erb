@@ -18,9 +18,15 @@
 								<h2>
 									<%= link_to question.title, question_path(question) %>
 								</h2>
-								<a class="question-report" href="#">Report</a>
+								<% if current_user.admin? %>
+									<a class="question-type-main" href="<%= edit_question_path(question) %>"><i class="icon-pencil"></i>Edit</a>
+									<%= link_to(question_path(question), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'question-report red-bg') do %>
+										<i class="icon-trash"></i>Delete
+									<% end %>
+								<% end %>
+								
 								<% if current_user == question.user %>
-								<a class="question-type-main" href="<%= edit_question_path(question) %>"><i class="fa-pencil"></i>Edit</a>
+									<a class="question-report" href="<%= edit_question_path(question) %>"><i class="icon-pencil"></i>Edit</a>
 								<% end %>
 								<div class="question-author">
 									<a href="<%= user_path(question.user.id) %>"  original-title="<%= question.user.name %>" class="question-author-img"><span></span><img alt="" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png"></a>
