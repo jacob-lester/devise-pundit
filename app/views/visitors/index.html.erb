@@ -20,7 +20,7 @@
 								</h2>
 								<a class="question-report" href="#">Report</a>
 								<% if current_user == question.user %>
-								<a class="question-type-main" href="<%= edit_question_path(question) %>"><i class="icon-pencil"></i>Edit</a>
+								<a class="question-type-main" href="<%= edit_question_path(question) %>"><i class="fa-pencil"></i>Edit</a>
 								<% end %>
 								<div class="question-author">
 									<a href="<%= user_path(question.user.id) %>"  original-title="<%= question.user.name %>" class="question-author-img"><span></span><img alt="" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-48.png"></a>
