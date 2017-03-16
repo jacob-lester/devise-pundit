@@ -14,7 +14,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
 gem 'rename'
-gem 'rails_12factor', group: :production
 
 
 group :development, :test do
@@ -41,5 +40,5 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
-
+  gem 'rails_12factor'
 end
