@@ -111,7 +111,7 @@ class  RegistrationsController < Devise::RegistrationsController
   # The path used after sign up. You need to overwrite this method
   # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
-    new_user_registration_path
+    users_path
   end
 
   # The path used after sign up for inactive accounts. You need to overwrite
@@ -148,7 +148,7 @@ class  RegistrationsController < Devise::RegistrationsController
   end
   
   def authorize_admin
-    redirect_to root_path, alert: 'Access Denied' unless current_user
+    redirect_to root_path, alert: 'Access Denied' unless current_user.role == "admin"
   end
   
 end
